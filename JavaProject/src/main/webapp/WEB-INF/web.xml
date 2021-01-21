@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>encoding</filter-name>
+        <filter-class>ru.itis.filters.EncodingFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>void_url</filter-name>
+        <filter-class>ru.itis.filters.VoidURLFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>background</filter-name>
+        <filter-class>ru.itis.filters.BackgroundFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>authentification</filter-name>
+        <filter-class>ru.itis.filters.AuthFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>main_page</filter-name>
+        <filter-class>ru.itis.filters.MainPageFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>service</filter-name>
+        <filter-class>ru.itis.filters.ServicePageFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>csrf</filter-name>
+        <filter-class>ru.itis.filters.CsrfFilter</filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>void_url</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>background</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>authentification</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>main_page</filter-name>
+        <url-pattern>/main</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>service</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>csrf</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
